@@ -1,0 +1,14 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "pglocaldirgantara",
+      "database": "dirgantara_anime",
+      "username": "postgres",
+      "password": "melio0805"
+    }
+  ]
+}
