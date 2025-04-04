@@ -3,7 +3,6 @@ import pool from "../utils/db.js";
 import { encrypt } from "../utils/encryption.js";
 import { renderMailHtml, sendMail } from "../utils/mail/mail.js";
 import { CLIENT_HOST, EMAIL_SMTP_USER } from "../utils/env.js";
-import { ROLES } from "../utils/constant.js";
 
 // CREATE
 const create = async ({ fullName, username, email, password }) => {
@@ -19,23 +18,25 @@ const create = async ({ fullName, username, email, password }) => {
   const { rows } = await pool.query(query, values);
   const user = rows[0];
 
-  // Send email (zoho ya Allah)
-  const contentMail = await renderMailHtml("registration-success.ejs", {
-    username: user.username,
-    fullName: user.full_name,
-    email: user.email,
-    createdAt: user.created_at,
-    activationLink: `${CLIENT_HOST}/auth/activation?code=${user.activation_code}`,
-  });
+  try {
+    const contentMail = await renderMailHtml("registration-success.ejs", {
+      username: user.username,
+      fullName: user.full_name,
+      email: user.email,
+      createdAt: user.created_at,
+      activationLink: `${CLIENT_HOST}/auth/activation?code=${user.activation_code}`,
+    });
 
-  await sendMail({
-    from: EMAIL_SMTP_USER,
-    to: user.email,
-    subject: "Akarui Account Activation",
-    html: contentMail,
-  });
+    await sendMail({
+      from: EMAIL_SMTP_USER,
+      to: user.email,
+      subject: "Dirgantara Anime Account Activation",
+      html: contentMail,
+    });
+  } catch (mailErr) {
+    console.error("❌ Failed to send mail:", mailErr.message);
+  }
 
-  delete user.password_hash; // safety purposes
   return user;
 };
 

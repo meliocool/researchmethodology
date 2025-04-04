@@ -20,3 +20,4 @@ export const EMAIL_SMTP_PORT = Number(process.env.EMAIL_SMTP_PORT) || 465;
 export const EMAIL_SMTP_HOST = process.env.EMAIL_SMTP_HOST || "";
 export const EMAIL_SMTP_SERVICE_NAME =
   process.env.EMAIL_SMTP_SERVICE_NAME || "";
+export const CLIENT_HOST = process.env.CLIENT_HOST || "";

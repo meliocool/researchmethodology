@@ -1,5 +1,7 @@
-import { Pool } from "pg";
-import { DB_HOST, DB_NAME, DB_PASSWORD, DB_USER } from "./env";
+import pkg from "pg";
+import { DB_HOST, DB_NAME, DB_PASSWORD, DB_USER } from "./env.js";
+
+const { Pool } = pkg;
 
 const pool = new Pool({
   user: DB_USER,

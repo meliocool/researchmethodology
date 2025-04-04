@@ -1,4 +1,4 @@
-import response from "../utils/response";
+import response from "../utils/response.js";
 
 export default (roles) => {
   // ['admin', 'user']

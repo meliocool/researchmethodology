@@ -57,3 +57,7 @@
 -- DELETE FROM animes
 -- WHERE id > 5;
 
+SELECT * FROM users;
+-- DELETE FROM users
+-- WHERE id = 3;
+

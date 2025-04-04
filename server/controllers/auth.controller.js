@@ -43,7 +43,19 @@ export default {
         password,
       });
 
-      response.success(res, result, "Registration Success!");
+      response.success(
+        res,
+        {
+          id: result.id,
+          fullName: result.full_name,
+          username: result.username,
+          email: result.email,
+          createdAt: result.created_at,
+          activation_code: result.activation_code,
+          // ...whatever else you want to send
+        },
+        "Registration Success!"
+      );
     } catch (error) {
       response.error(res, error, "Registration Failed!");
     }
