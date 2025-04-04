@@ -1,11 +1,18 @@
 -- -- DDL Users table
 -- CREATE TABLE users (
---     id SERIAL PRIMARY KEY,
---     username VARCHAR(50) UNIQUE NOT NULL,
---     email VARCHAR(100) UNIQUE NOT NULL,
---     password_hash VARCHAR(255) NOT NULL,
---     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+--   id SERIAL PRIMARY KEY,
+--   full_name VARCHAR(100) NOT NULL,
+--   username VARCHAR(50) UNIQUE NOT NULL,
+--   email VARCHAR(100) UNIQUE NOT NULL,
+--   password_hash VARCHAR(255) NOT NULL,
+--   role VARCHAR(10) DEFAULT 'user' CHECK (role IN ('admin', 'user')),
+--   profile_picture VARCHAR(255) DEFAULT 'user.jpg',
+--   is_active BOOLEAN DEFAULT FALSE,
+--   activation_code VARCHAR(255),
+--   created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+--   updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 -- );
+
 
 -- -- DDL Animes table
 -- CREATE TABLE animes (
@@ -49,3 +56,4 @@
 
 -- DELETE FROM animes
 -- WHERE id > 5;
+
