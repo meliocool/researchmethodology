@@ -1,5 +1,5 @@
-import { getUserData } from "../utils/jwt";
-import response from "../utils/response";
+import { getUserData } from "../utils/jwt.js";
+import response from "../utils/response.js";
 
 export default (req, res, next) => {
   const authorization = req.headers.authorization;
