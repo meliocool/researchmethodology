@@ -57,7 +57,69 @@
 -- DELETE FROM animes
 -- WHERE id > 5;
 
-SELECT * FROM users;
+-- SELECT * FROM users;
 -- DELETE FROM users
 -- WHERE id = 3;
+
+-- -- Main Anime Table
+-- CREATE TABLE anime (
+--   id SERIAL PRIMARY KEY,
+--   mal_id INTEGER,
+--   title TEXT,
+--   title_english TEXT,
+--   title_japanese TEXT,
+--   title_synonyms TEXT,
+--   image_url TEXT,
+--   type TEXT,
+--   source TEXT,
+--   episodes INTEGER,
+--   status TEXT,
+--   premiered TEXT,
+--   broadcast TEXT,
+--   aired_string TEXT,
+--   duration TEXT,
+--   rating TEXT,
+--   score REAL,
+--   scored_by INTEGER,
+--   rank INTEGER,
+--   popularity INTEGER,
+--   members INTEGER,
+--   favorites INTEGER,
+--   background TEXT
+-- );
+
+-- -- Studio
+-- CREATE TABLE studio (
+--   id SERIAL PRIMARY KEY,
+--   name TEXT UNIQUE
+-- );
+
+-- -- Studio Anime Join Table
+-- CREATE TABLE anime_studio (
+--   anime_id INTEGER REFERENCES anime(id),
+--   studio_id INTEGER REFERENCES studio(id),
+--   PRIMARY KEY (anime_id, studio_id)
+-- );
+
+-- -- Genre
+-- CREATE TABLE genre (
+--   id SERIAL PRIMARY KEY,
+--   name TEXT UNIQUE
+-- );
+
+-- -- Genre Anime join Table
+-- CREATE TABLE anime_genre (
+--   anime_id INTEGER REFERENCES anime(id),
+--   genre_id INTEGER REFERENCES genre(id),
+--   PRIMARY KEY (anime_id, genre_id)
+-- );
+
+-- -- Theme
+-- CREATE TABLE theme (
+--   id SERIAL PRIMARY KEY,
+--   anime_id INTEGER REFERENCES anime(id),
+--   type TEXT, -- 'opening' or 'ending'
+--   theme TEXT
+-- );
+
 
