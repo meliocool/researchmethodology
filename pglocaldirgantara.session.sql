@@ -108,6 +108,19 @@
 --     theme TEXT
 -- );
 
+-- -- 7. Anime List
+CREATE TABLE anime_lists (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    anime_id INTEGER REFERENCES anime(anime_id) ON DELETE CASCADE,
+    status TEXT,
+    user_rating INTEGER CHECK (user_rating BETWEEN 0 AND 10),
+    notes TEXT,
+    UNIQUE(user_id, anime_id)
+);
+
+-- DROP TABLE anime_lists;
+
 -- BEGIN;
 
 -- -- Delete from junction tables and child tables
@@ -139,8 +152,8 @@
 
 -- COMMIT;
 
-SELECT * FROM anime
-ORDER BY id ASC;
+-- SELECT * FROM anime
+-- ORDER BY id ASC;
 
 -- SELECT * FROM genres;
 -- SELECT * FROM anime_genres;
