@@ -11,13 +11,16 @@
     "body-parser": "^2.2.0",
     "cloudinary": "^2.6.0",
     "cors": "^2.8.5",
+    "csv-parse": "^5.6.0",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.2",
     "nodemailer": "^6.10.0",
-    "pg": "^8.10.0",
+    "pg": "^8.15.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "yup": "^1.6.1"
   },
   "devDependencies": {
@@ -26,5 +29,6 @@
   "keywords": [],
   "author": "Dhitan",
   "license": "ISC",
+  "type": "module",
   "description": "Web App like MyAnimeList for Research Methodology"
 }

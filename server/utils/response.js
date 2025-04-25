@@ -41,6 +41,15 @@ export default {
       data: error,
     });
   },
+  notFound(res, message = "Not Found") {
+    res.status(404).json({
+      meta: {
+        status: 404,
+        message,
+      },
+      data: null,
+    });
+  },
   unauthorized(res, message = "unauthorized") {
     res.status(403).json({
       meta: {
